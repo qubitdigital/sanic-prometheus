@@ -1,4 +1,5 @@
 import os
+
 from sanic.response import raw
 from prometheus_client import (
     start_http_server,
@@ -63,7 +64,7 @@ def monitor(app, endpoint_type='url:1',
             mmc_period_sec=30,
             multiprocess_mode='all'):
     """
-    Regiesters a bunch of metrics for Sanic server
+    Registers a bunch of metrics for Sanic server
     (request latency, count, etc) and exposes /metrics endpoint
     to allow Prometheus to scrape them out.
 

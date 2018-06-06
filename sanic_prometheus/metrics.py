@@ -1,6 +1,7 @@
 import asyncio
 import time
 import psutil
+
 from prometheus_client import Counter, Histogram, Gauge
 
 # I hate global variables but I didn't find a better way
@@ -12,12 +13,11 @@ METRICS = None
 def init(
         latency_buckets=None, multiprocess_mode='all',
         memcollect_enabled=True):
-    metrics = {}
-    metrics['RQS_COUNT'] = Counter(
+    metrics = {'RQS_COUNT': Counter(
         'sanic_request_count',
         'Sanic Request Count',
         ['method', 'endpoint', 'http_status']
-    )
+    )}
 
     hist_kwargs = {}
     if latency_buckets is not None:

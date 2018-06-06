@@ -1,5 +1,8 @@
 from setuptools import setup
 
+with open('requirements.txt') as req_file:
+    install_requires = req_file.readlines()
+
 setup(
     name='sanic-prometheus',
     version='0.1.5',
@@ -11,11 +14,7 @@ setup(
     packages=['sanic_prometheus'],
     zip_safe=False,
     platforms='any',
-    install_requires=[
-        'sanic>=0.5.0',
-        'prometheus-client>=0.0.19',
-        'psutil>=5.2.0'
-    ],
+    install_requires=install_requires,
     classifiers=[
         'Intended Audience :: Developers',
         'Development Status :: 3 - Alpha',
