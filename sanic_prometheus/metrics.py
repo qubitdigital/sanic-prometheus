@@ -22,6 +22,7 @@ def init(
     hist_kwargs = {}
     if latency_buckets is not None:
         hist_kwargs = {'buckets': latency_buckets}
+
     metrics['RQS_LATENCY'] = Histogram(
         'sanic_request_latency_sec',
         'Sanic Request Latency Histogram',

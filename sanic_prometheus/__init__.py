@@ -79,7 +79,7 @@ def monitor(app, endpoint_type='url:1',
                             url:n - like URL but with at most `n` path elements
                                 in the endpoint (i.e. with `url:1`
                                 http://something/a/b/c becomes `/a`).
-                            custom - custom endpoint fetching funciton that
+                            custom - custom endpoint fetching function that
                                 should be specified by `get_endpoint_fn`
     :param get_endpoint_fn: a custom endpoint fetching function that is ignored
                             until `endpoint_type='custom'`.
