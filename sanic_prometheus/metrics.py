@@ -60,7 +60,7 @@ def before_request_handler(request):
 
 
 def after_request_handler(request, response, get_endpoint_fn):
-    lat = time.time() - request['__START_TIME__']
+    lat = time.time() - request.get('__START_TIME__', time.time())
     endpoint = get_endpoint_fn(request)
 
     # Note, that some handlers can ignore response logic,
