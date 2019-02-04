@@ -5,7 +5,7 @@ with open('requirements.txt') as req_file:
 
 setup(
     name='sanic-prometheus',
-    version='0.1.8',
+    version='0.1.9',
     description='Exposes various prometheus monitoring metrics of Sanic-based apps.',
     url='http://github.com/dkruchinin/sanic-prometheus',
     author='Dan Kruchinin',
