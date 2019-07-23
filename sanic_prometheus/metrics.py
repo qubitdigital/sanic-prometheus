@@ -1,8 +1,8 @@
 import asyncio
 import time
-import psutil
 
-from prometheus_client import Counter, Histogram, Gauge
+import psutil
+from prometheus_client import Counter, Gauge, Histogram
 
 # I hate global variables but I didn't find a better way
 # to make things compatible with how prometheus_client works
@@ -38,7 +38,7 @@ def init(
         )
         metrics['PROC_RSS_MEM_PERC'] = Gauge(
             'sanic_mem_rss_perc',
-            'A per cent of total physical memory used by ' +
+            'A per cent of total physical memory used by '
             'the process running Sanic',
             multiprocess_mode=multiprocess_mode
         )

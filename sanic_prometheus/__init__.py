@@ -1,16 +1,12 @@
 import os
 
+from prometheus_client import (CollectorRegistry, multiprocess,
+                               start_http_server)
+from prometheus_client.exposition import (CONTENT_TYPE_LATEST, core,
+                                          generate_latest)
 from sanic.response import raw
-from prometheus_client import (
-    start_http_server,
-    multiprocess,
-    CollectorRegistry
-)
-from prometheus_client.exposition import (
-    generate_latest, core, CONTENT_TYPE_LATEST
-)
 
-from . import metrics, endpoint
+from . import endpoint, metrics
 from .exceptions import SanicPrometheusError
 
 
@@ -27,6 +23,7 @@ class MonitorSetup:
         and you do not want to expose more than one port for some
         reason.
         """
+
         @self._app.route('/metrics', methods=['GET'])
         async def expose_metrics(request):
             return raw(self._get_metrics_data(),
@@ -43,7 +40,7 @@ class MonitorSetup:
         """
         if self._multiprocess_on:
             raise SanicPrometheusError(
-                "start_server can not be used when multiprocessing " +
+                "start_server can not be used when multiprocessing "
                 "is turned on")
         start_http_server(addr=addr, port=port)
 
