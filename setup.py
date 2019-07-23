@@ -4,7 +4,7 @@ with open('requirements.txt') as req_file:
     install_requires = req_file.readlines()
 
 setup(
-    name='sanic-prometheus',
+    name='sanic-prometheus-qubit',
     version='0.1.9',
     description='Exposes various prometheus monitoring metrics of Sanic-based apps.',
     url='http://github.com/dkruchinin/sanic-prometheus',
